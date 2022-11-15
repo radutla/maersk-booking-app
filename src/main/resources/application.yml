@@ -1,0 +1,25 @@
+  spring:
+    data:
+      cassandra:
+        keyspace-name: container_booking
+        port: 9042
+        username: <username>
+        password: <password>
+        schema-action: create_if_not_exists
+        request:
+          timeout: 10s
+        connection:
+          connect-timeout: 10s
+          init-query-timeout: 10s
+    main:
+        allow-circular-references: true
+
+
+  datastax.astra:
+    secure-connect-maersk-bundle: secure-connect-maersk.zip
+
+  astra.db:
+      id: a7c81c7c-4b94-49c7-9576-f954e7431d31-1
+      region: West Europe2 (London, England, UK)
+      keyspace: container_booking
+      application.token: <token>
