@@ -11,7 +11,7 @@ url - http://localhost:8080/swagger-ui/index.html
 
 ### Data:
 
-Example of a booking data JSON object:
+Example of a booking request data JSON object:
 
 ```
 {
@@ -20,6 +20,14 @@ Example of a booking data JSON object:
              “origin” : “Southampton”,
              “destination” : “Singapore”,
              “quantity” : 5
+}
+```
+Example of a booking response data JSON object:
+
+```
+
+{
+   “bookingRef” : “7d918b44-6662-11ed-9022-0242ac120002”
 }
 ```
 
@@ -31,7 +39,7 @@ The REST service exposed the `/container/book` endpoint, which allows customers 
 
 - creates a new booking
 - expects a valid booking json object.
-- adds the given book to the collection.
+- adds the given booking to the collection.
 - the response code is 201, and the response body is the created booking object.
 
 **GET** request to `/findAll`:
@@ -50,7 +58,7 @@ The application use cassandra datastax astra database which is deployed on GCP, 
 - run:
 
 ```bash
-mvn clean package; java -jar target/maersk-booking-app-1.0.jar
+mvn clean java -jar target/maersk-booking-app-1.0.jar
 ```
 
 - install:
