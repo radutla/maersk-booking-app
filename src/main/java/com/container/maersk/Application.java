@@ -1,21 +1,16 @@
 package com.container.maersk;
 
 import java.nio.file.Path;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.cassandra.CqlSessionBuilderCustomizer;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import com.container.maersk.repository.BookingRepository;
 import com.container.maersk.repository.DataStaxAstraProperties;
 
 @SpringBootApplication
 @EnableConfigurationProperties(DataStaxAstraProperties.class)
 public class Application {
-
-    @Autowired
-    BookingRepository bookingRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
