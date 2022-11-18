@@ -33,19 +33,16 @@ public class BookingController {
      */
 
     @GetMapping("/all")
-    @ResponseStatus(HttpStatus.OK)
     public Flux<BookingDetails> getBookings() {
         return bookingService.getAll();
     }
 
     @GetMapping("/container/availability")
-    @ResponseStatus(HttpStatus.OK)
     public Mono<ContainerAvailability> checkIfAvailable() {
         return bookingService.checkAvailability();
     }
 
     @PostMapping("/container/book")
-    @ResponseStatus(HttpStatus.CREATED)
     public Mono<ResponseEntity<BookingResponse>> create(@RequestBody BookingRequest bookingRequest) {
         return bookingService.confirm(bookingRequest)
                 .map(confirmed -> ResponseEntity.ok().body(confirmed))

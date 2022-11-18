@@ -11,26 +11,10 @@ import com.container.maersk.dto.ContainerAvailability;
 import com.container.maersk.dto.ContainerType;
 import com.container.maersk.model.Booking;
 import lombok.RequiredArgsConstructor;
-import reactor.core.publisher.Mono;
 
 @Component
 @RequiredArgsConstructor
 public class RequestTransformer {
-
-    private final RequestValidator validator;
-
-    public Mono<Booking> toDb(BookingRequest bookingRequest) {
-        return Mono.create(sink ->
-        {
-            try {
-                if (Boolean.TRUE.equals(validator.validate(bookingRequest))) {
-                    sink.success(up(bookingRequest));
-                }
-            } catch (Exception e) {
-                sink.error(e);
-            }
-        });
-    }
 
     public BookingResponse map(Booking booking) {
         return BookingResponse.builder()

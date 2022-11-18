@@ -36,7 +36,7 @@ public class BookingServiceTest {
     public static void setup() {
         bookingRepository = mock(BookingRepository.class);
         RequestValidator requestValidator = mock(RequestValidator.class);
-        RequestTransformer requestTransformer = new RequestTransformer(requestValidator);
+        RequestTransformer requestTransformer = mock(RequestTransformer.class);
         bookingService = new BookingService(builder, requestTransformer, requestValidator, bookingRepository);
     }
 

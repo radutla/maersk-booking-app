@@ -1,10 +1,16 @@
 package com.container.maersk.dto;
 
 import java.util.UUID;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-@Builder
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 @Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class BookingDetails {
     private UUID bookingRef;
     private ContainerType containerType;
